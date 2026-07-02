@@ -19,6 +19,7 @@ export class SiteHeader implements AfterViewInit, OnDestroy {
     { label: 'Home', href: '#top', id: 'top' },
     { label: 'About', href: '#about', id: 'about' },
     { label: 'Expertise', href: '#expertise', id: 'expertise' },
+    { label: 'Tools', href: '#tools', id: 'tools' },
     { label: 'Work', href: '#work', id: 'work' },
     { label: 'Experience', href: '#experience', id: 'experience' },
     { label: 'Certifications', href: '#certifications', id: 'certifications' },

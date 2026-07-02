@@ -21,5 +21,6 @@ export class HeroSection {
   protected readonly keySkills = techStack.slice(0, 6).map((label) => ({
     label,
     logo: skillLogos[label],
+    logoOnly: label === '.NET',
   }));
 }

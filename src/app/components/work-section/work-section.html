@@ -17,65 +17,56 @@
           [class]="'case-visual case-visual-' + study.visual"
           aria-hidden="true"
         >
-          @switch (study.visual) {
-            @case ('api') {
-              <div class="node node-primary"></div>
-              <div class="node node-left"></div>
-              <div class="node node-right"></div>
-              <div class="flow-line flow-line-one"></div>
-              <div class="flow-line flow-line-two"></div>
-              <div class="pipeline-panel">
-                <span></span>
-                <span></span>
-                <span></span>
+          <div class="project-shot">
+            <div class="project-shot-header">
+              <div>
+                <span>{{ study.visualMockup.eyebrow }}</span>
+                <strong>{{ study.visualMockup.title }}</strong>
               </div>
-            }
-            @case ('database') {
-              <div class="db-stack">
-                <span></span>
-                <span></span>
-                <span></span>
+              <div class="project-shot-context">
+                @for (context of study.integrationContext; track context.label) {
+                  <span>{{ context.label }}</span>
+                }
               </div>
-              <div class="chart-panel">
-                <i></i>
-                <i></i>
-                <i></i>
-                <i></i>
-              </div>
-              <div class="query-panel">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-            }
-            @case ('workflow') {
-              <div class="workflow-row">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-              <div class="form-panel">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-              <div class="status-pill"></div>
-            }
-            @default {
-              <div class="health-ring"></div>
-              <div class="log-panel">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-              <div class="signal-bars">
-                <i></i>
-                <i></i>
-                <i></i>
-              </div>
-            }
-          }
+            </div>
+
+            <div class="project-shot-metrics">
+              @for (metric of study.visualMockup.metrics; track metric.label) {
+                <div>
+                  <span>{{ metric.label }}</span>
+                  <strong>{{ metric.value }}</strong>
+                  <em>{{ metric.caption }}</em>
+                </div>
+              }
+            </div>
+
+            <div class="project-shot-flow">
+              @for (step of study.visualMockup.flow; track step) {
+                <span>{{ step }}</span>
+              }
+            </div>
+
+            <div class="project-shot-focus">
+              @for (row of study.visualMockup.rows; track row.label) {
+                <div>
+                  <span>{{ row.label }}</span>
+                  <strong>{{ row.value }}</strong>
+                  <em>{{ row.status }}</em>
+                </div>
+              }
+            </div>
+
+            <div class="project-shot-tags">
+              @for (tag of study.visualMockup.tags; track tag) {
+                <span>
+                  @if (getTagLogo(tag); as logo) {
+                    <img class="tag-icon" [src]="logo" alt="" loading="lazy" />
+                  }
+                  {{ tag }}
+                </span>
+              }
+            </div>
+          </div>
         </div>
         <div class="case-body">
           <span class="case-index">0{{ $index + 1 }} / {{ study.category }}</span>
@@ -91,14 +82,22 @@
         </div>
         <div class="tag-row" aria-label="Technologies">
           @for (tag of study.tags; track tag) {
-            <span>{{ tag }}</span>
+            <span class="tag-chip">
+              @if (getTagLogo(tag); as logo) {
+                <img class="tag-icon" [src]="logo" alt="" loading="lazy" />
+              }
+              {{ tag }}
+            </span>
           }
         </div>
         <div class="context-row" aria-label="Integration context">
           <span class="context-row-label">Integration context</span>
           <div class="context-logo-row">
             @for (context of study.integrationContext; track context.label) {
-              <span class="context-logo-chip">
+              <span
+                class="context-logo-chip"
+                [class.context-logo-chip--wordmark]="isWordmarkLogo(context)"
+              >
                 @if (context.logo && !isLogoMissing(context.logo)) {
                   <img
                     class="context-logo-image"
@@ -106,7 +105,9 @@
                     [alt]="context.label + ' logo'"
                     (error)="markLogoMissing(context.logo)"
                   />
-                  <span class="context-logo-label">{{ context.label }}</span>
+                  @if (!isWordmarkLogo(context)) {
+                    <span class="context-logo-label">{{ context.label }}</span>
+                  }
                 } @else {
                   <span class="context-logo-fallback">{{ context.label }}</span>
                 }

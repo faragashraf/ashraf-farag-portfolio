@@ -39,7 +39,9 @@
           @if (skill.logo) {
             <img class="tech-logo" [src]="skill.logo" [alt]="skill.label + ' logo'" loading="lazy" />
           }
-          <span class="tech-label">{{ skill.label }}</span>
+          @if (!skill.logoOnly) {
+            <span class="tech-label">{{ skill.label }}</span>
+          }
         </span>
       }
     </div>
