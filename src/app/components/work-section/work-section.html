@@ -8,7 +8,8 @@
   <div class="case-list">
     @for (study of caseStudies; track study.title) {
       <article class="case-card reveal">
-        <div>
+        <img class="case-image" [src]="study.image" [alt]="study.title + ' preview mockup'" loading="lazy" />
+        <div class="case-body">
           <span class="case-index">0{{ $index + 1 }}</span>
           <h3>{{ study.title }}</h3>
           <p>{{ study.description }}</p>

@@ -8,13 +8,13 @@
 
     <div class="hero-actions" aria-label="Primary actions">
       <a class="button button-primary" href="#work">View My Work</a>
-      <!-- TODO: add public/assets/Ashraf-Farag-CV.pdf when the final CV is ready. -->
-      <button class="button button-muted" type="button" disabled>Download CV</button>
+      <a class="button button-secondary" [href]="profile.cv" download>Download CV</a>
       <a class="button button-secondary" href="#contact">Contact Me</a>
     </div>
   </div>
 
   <aside class="hero-panel reveal" aria-label="Profile highlights">
+    <img class="profile-photo" [src]="profile.image" alt="Portrait of Ashraf Farag Allah" />
     <div class="availability">
       <span class="status-dot" aria-hidden="true"></span>
       Available for backend, API, and integration work
