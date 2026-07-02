@@ -1,18 +1,85 @@
 <section class="section-shell work-section" id="work">
   <app-section-heading
     eyebrow="Selected work"
-    title="Safe, generic case studies"
-    description="Representative themes without confidential names, sensitive system details, or private data."
+    title="Professional case-study highlights"
+    description="Representative delivery themes described without confidential names, sensitive system details, or private data."
   />
 
   <div class="case-list">
     @for (study of caseStudies; track study.title) {
       <article class="case-card reveal">
-        <img class="case-image" [src]="study.image" [alt]="study.title + ' preview mockup'" loading="lazy" />
+        <div
+          class="case-visual"
+          [class]="'case-visual case-visual-' + study.visual"
+          aria-hidden="true"
+        >
+          @switch (study.visual) {
+            @case ('api') {
+              <div class="node node-primary"></div>
+              <div class="node node-left"></div>
+              <div class="node node-right"></div>
+              <div class="flow-line flow-line-one"></div>
+              <div class="flow-line flow-line-two"></div>
+              <div class="pipeline-panel">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            }
+            @case ('database') {
+              <div class="db-stack">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="chart-panel">
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+              </div>
+              <div class="query-panel">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            }
+            @case ('workflow') {
+              <div class="workflow-row">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="form-panel">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="status-pill"></div>
+            }
+            @default {
+              <div class="health-ring"></div>
+              <div class="log-panel">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="signal-bars">
+                <i></i>
+                <i></i>
+                <i></i>
+              </div>
+            }
+          }
+        </div>
         <div class="case-body">
-          <span class="case-index">0{{ $index + 1 }}</span>
+          <span class="case-index">0{{ $index + 1 }} / {{ study.theme }}</span>
           <h3>{{ study.title }}</h3>
           <p>{{ study.description }}</p>
+          <a class="case-link" href="#contact" aria-label="Discuss {{ study.title }}"
+            >View highlight</a
+          >
         </div>
         <div class="tag-row" aria-label="Technologies">
           @for (tag of study.tags; track tag) {

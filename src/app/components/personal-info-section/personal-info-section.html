@@ -1,0 +1,49 @@
+<section class="section-shell personal-section" id="personal-info">
+  <app-section-heading
+    eyebrow="Personal info"
+    title="Professional identity snapshot"
+    description="Concise contact and positioning details for relevant backend, integration, and leadership conversations."
+  />
+
+  <article class="profile-snapshot reveal" aria-label="Personal information">
+    <div class="profile-snapshot-hero">
+      <span class="profile-snapshot-mark" aria-hidden="true">AF</span>
+      <div>
+        <p class="role-label">Senior Backend Developer</p>
+        <h3>{{ profile.name }}</h3>
+        <p>{{ profile.availability }}</p>
+      </div>
+    </div>
+
+    <div class="identity-grid">
+      <div>
+        <span>Name</span>
+        <strong>{{ profile.name }}</strong>
+      </div>
+      <div>
+        <span>Role</span>
+        <strong>{{ profile.role }}</strong>
+      </div>
+      <div>
+        <span>Location</span>
+        <strong>{{ profile.location }}</strong>
+      </div>
+      <div>
+        <span>Email</span>
+        <a [href]="'mailto:' + profile.email">{{ profile.email }}</a>
+      </div>
+      <div>
+        <span>Phone</span>
+        <a [href]="profile.phoneHref">{{ profile.phone }}</a>
+      </div>
+      <div>
+        <span>WhatsApp</span>
+        <a [href]="profile.whatsapp" target="_blank" rel="noreferrer">Message on WhatsApp</a>
+      </div>
+      <div>
+        <span>LinkedIn</span>
+        <a [href]="profile.linkedin" target="_blank" rel="noreferrer">ashraf-farag-allah</a>
+      </div>
+    </div>
+  </article>
+</section>

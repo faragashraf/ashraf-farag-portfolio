@@ -8,9 +8,60 @@
   <div class="contact-grid reveal">
     @for (link of contactLinks; track link.label) {
       <article class="contact-card">
+        <div
+          class="contact-icon"
+          [class]="'contact-icon contact-icon-' + link.label.toLowerCase()"
+          aria-hidden="true"
+        >
+          @switch (link.label) {
+            @case ('Email') {
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M4 6h16v12H4z" />
+                <path d="M4 7l8 6 8-6" />
+              </svg>
+            }
+            @case ('Phone') {
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M7 4l3 3-2 3c1.4 2.8 3.2 4.6 6 6l3-2 3 3-2 3c-7.2-.4-13.6-6.8-14-14z" />
+              </svg>
+            }
+            @case ('WhatsApp') {
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M7.2 20.5l1-3.4a7.5 7.5 0 1 1 2.9 2.1z" />
+                <path d="M9.8 8.8c.2-.5.4-.5.7-.5h.5c.2 0 .4.1.5.4l.7 1.6c.1.3.1.5-.1.7l-.4.5c-.2.2-.2.4 0 .7.5.9 1.3 1.7 2.3 2.2.3.2.5.2.7-.1l.5-.6c.2-.2.4-.3.7-.2l1.6.8c.3.1.4.3.4.6 0 .5-.3 1.2-.8 1.5-.6.4-1.8.5-3.5-.3-2.9-1.3-4.8-3.9-5-5.8-.1-.8 0-1.5.3-2z" />
+              </svg>
+            }
+            @case ('LinkedIn') {
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path
+                  d="M5 9h4v10H5zM5 5h4v3H5zM11 9h4v1.5c.6-1 1.7-1.8 3.2-1.8 2.3 0 3.8 1.5 3.8 4.8V19h-4v-5c0-1.3-.5-2-1.5-2S15 12.7 15 14v5h-4z"
+                />
+              </svg>
+            }
+            @case ('GitHub') {
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path
+                  d="M12 3a9 9 0 0 0-3 17c.5.1.7-.2.7-.5v-1.8c-2.9.6-3.5-1.2-3.5-1.2-.5-1.1-1.1-1.4-1.1-1.4-.9-.6.1-.6.1-.6 1 0 1.6 1.1 1.6 1.1.9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.7-1.4-2.3-.3-4.7-1.2-4.7-5A3.9 3.9 0 0 1 6.8 6.4c-.1-.3-.5-1.3.1-2.6 0 0 .9-.3 2.8 1.1a9.5 9.5 0 0 1 5.1 0c1.9-1.4 2.8-1.1 2.8-1.1.6 1.3.2 2.3.1 2.6a3.9 3.9 0 0 1 1.1 2.8c0 3.9-2.4 4.7-4.7 5 .4.3.8 1 .8 2v3.3c0 .3.2.6.8.5A9 9 0 0 0 12 3z"
+                />
+              </svg>
+            }
+            @default {
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11z" />
+                <circle cx="12" cy="10" r="2.5" />
+              </svg>
+            }
+          }
+        </div>
         <span>{{ link.label }}</span>
         @if (link.href) {
-          <a [href]="link.href" target="_blank" rel="noreferrer">{{ link.value }}</a>
+          <a
+            [href]="link.href"
+            [attr.target]="link.href.startsWith('http') ? '_blank' : null"
+            [attr.rel]="link.href.startsWith('http') ? 'noreferrer' : null"
+          >
+            {{ link.value }}
+          </a>
         } @else {
           <strong>{{ link.value }}</strong>
         }

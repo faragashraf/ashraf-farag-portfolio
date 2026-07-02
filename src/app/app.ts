@@ -6,9 +6,9 @@ import { ContactSection } from './components/contact-section/contact-section';
 import { ExperienceSection } from './components/experience-section/experience-section';
 import { ExpertiseSection } from './components/expertise-section/expertise-section';
 import { HeroSection } from './components/hero-section/hero-section';
+import { PersonalInfoSection } from './components/personal-info-section/personal-info-section';
 import { SiteFooter } from './components/site-footer/site-footer';
 import { SiteHeader } from './components/site-header/site-header';
-import { TechSection } from './components/tech-section/tech-section';
 import { WorkSection } from './components/work-section/work-section';
 
 @Component({
@@ -19,13 +19,13 @@ import { WorkSection } from './components/work-section/work-section';
     AboutSection,
     ExpertiseSection,
     WorkSection,
-    TechSection,
-    CertificationsSection,
     ExperienceSection,
+    CertificationsSection,
+    PersonalInfoSection,
     ContactSection,
-    SiteFooter
+    SiteFooter,
   ],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
 export class App {}
