@@ -33,6 +33,16 @@ npm run build
 
 Production files are generated in `dist/ashraf-portfolio/`.
 
+## Deploy
+
+```bash
+npm run build:deploy
+```
+
+The deploy-ready files are copied to `deploy/upload-ready/`.
+That folder is intentionally ignored by GitHub so it stays local only.
+Use the contents of `deploy/upload-ready/` for manual upload to static hosting or IIS.
+
 ## Test
 
 ```bash
@@ -65,4 +75,4 @@ Possible future domains:
 - `ashraf.botglobalservice.com`
 - `portfolio.botglobalservice.com`
 
-For static hosting, run `npm run build` and publish the generated production output from `dist/ashraf-portfolio/`.
+For static hosting, run `npm run build:deploy` and publish the generated production output from `deploy/upload-ready/`.
