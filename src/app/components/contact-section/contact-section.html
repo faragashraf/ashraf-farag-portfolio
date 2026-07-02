@@ -1,0 +1,22 @@
+<section class="section-shell contact-section" id="contact">
+  <app-section-heading
+    eyebrow="Contact"
+    title="Let us talk about backend systems that need to be reliable"
+    description="For professional opportunities, collaborations, and technical discussions."
+  />
+
+  <div class="contact-grid reveal">
+    @for (link of contactLinks; track link.label) {
+      <article class="contact-card">
+        <span>{{ link.label }}</span>
+        @if (link.href) {
+          <a [href]="link.href" target="_blank" rel="noreferrer">{{ link.value }}</a>
+        } @else {
+          <strong>{{ link.value }}</strong>
+        }
+      </article>
+    }
+  </div>
+
+  <p class="todo-note">TODO: replace {{ profile.email }} with the final email address.</p>
+</section>

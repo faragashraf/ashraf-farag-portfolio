@@ -1,0 +1,17 @@
+<section class="section-shell split-section" id="experience">
+  <app-section-heading
+    eyebrow="Experience highlight"
+    title="Enterprise backend leadership"
+    description="Current professional role, described with safe and practical wording."
+  />
+
+  <article class="experience-card reveal">
+    <p class="role-label">{{ experience.company }}</p>
+    <h3>{{ experience.role }}</h3>
+    <ul>
+      @for (bullet of experience.bullets; track bullet) {
+        <li>{{ bullet }}</li>
+      }
+    </ul>
+  </article>
+</section>

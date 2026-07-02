@@ -1,0 +1,16 @@
+<section class="section-shell" id="expertise">
+  <app-section-heading
+    eyebrow="Core expertise"
+    title="Backend depth with enterprise delivery context"
+    description="A focused mix of API design, databases, integrations, support, and systems analysis."
+  />
+
+  <div class="card-grid">
+    @for (item of expertise; track item.title) {
+      <article class="info-card reveal">
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.description }}</p>
+      </article>
+    }
+  </div>
+</section>

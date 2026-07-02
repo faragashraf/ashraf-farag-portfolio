@@ -1,0 +1,42 @@
+<section class="hero section-shell" id="top">
+  <div class="hero-copy reveal">
+    <p class="eyebrow">{{ profile.positioning }}</p>
+    <h1>{{ profile.name }}</h1>
+    <p class="hero-role">{{ profile.role }}</p>
+    <p class="hero-subtitle">{{ profile.subtitle }}</p>
+    <p class="hero-pitch">{{ profile.pitch }}</p>
+
+    <div class="hero-actions" aria-label="Primary actions">
+      <a class="button button-primary" href="#work">View My Work</a>
+      <!-- TODO: add public/assets/Ashraf-Farag-CV.pdf when the final CV is ready. -->
+      <button class="button button-muted" type="button" disabled>Download CV</button>
+      <a class="button button-secondary" href="#contact">Contact Me</a>
+    </div>
+  </div>
+
+  <aside class="hero-panel reveal" aria-label="Profile highlights">
+    <div class="availability">
+      <span class="status-dot" aria-hidden="true"></span>
+      Available for backend, API, and integration work
+    </div>
+    <dl class="hero-metrics">
+      <div>
+        <dt>Focus</dt>
+        <dd>Reliable enterprise systems</dd>
+      </div>
+      <div>
+        <dt>Strength</dt>
+        <dd>Backend + system analysis</dd>
+      </div>
+      <div>
+        <dt>Location</dt>
+        <dd>{{ profile.location }}</dd>
+      </div>
+    </dl>
+    <div class="skill-cloud" aria-label="Core technologies">
+      @for (skill of keySkills; track skill) {
+        <span>{{ skill }}</span>
+      }
+    </div>
+  </aside>
+</section>

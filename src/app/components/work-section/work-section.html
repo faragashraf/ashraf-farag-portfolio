@@ -1,0 +1,24 @@
+<section class="section-shell work-section" id="work">
+  <app-section-heading
+    eyebrow="Selected work"
+    title="Safe, generic case studies"
+    description="Representative themes without confidential names, sensitive system details, or private data."
+  />
+
+  <div class="case-list">
+    @for (study of caseStudies; track study.title) {
+      <article class="case-card reveal">
+        <div>
+          <span class="case-index">0{{ $index + 1 }}</span>
+          <h3>{{ study.title }}</h3>
+          <p>{{ study.description }}</p>
+        </div>
+        <div class="tag-row" aria-label="Technologies">
+          @for (tag of study.tags; track tag) {
+            <span>{{ tag }}</span>
+          }
+        </div>
+      </article>
+    }
+  </div>
+</section>

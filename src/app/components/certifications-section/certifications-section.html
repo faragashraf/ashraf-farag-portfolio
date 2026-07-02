@@ -1,0 +1,16 @@
+<section class="section-shell compact-section">
+  <app-section-heading
+    eyebrow="Certifications"
+    title="Professional learning areas"
+    description="Placeholder entries ready for exact certificate names, issuers, and dates."
+  />
+
+  <div class="cert-list reveal">
+    @for (certification of certifications; track certification.title) {
+      <article class="cert-item">
+        <h3>{{ certification.title }}</h3>
+        <p>{{ certification.note }}</p>
+      </article>
+    }
+  </div>
+</section>

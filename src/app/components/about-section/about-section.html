@@ -1,0 +1,13 @@
+<section class="section-shell split-section" id="about">
+  <app-section-heading
+    eyebrow="About"
+    title="Engineering practical systems that hold up in production"
+    description="A backend-first profile with full-stack delivery experience."
+  />
+
+  <div class="about-copy reveal">
+    @for (paragraph of aboutText; track paragraph) {
+      <p>{{ paragraph }}</p>
+    }
+  </div>
+</section>

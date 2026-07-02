@@ -1,0 +1,13 @@
+<section class="section-shell compact-section">
+  <app-section-heading
+    eyebrow="Tech stack"
+    title="Tools and platforms"
+    description="Technologies used across backend systems, data workflows, APIs, and internal tools."
+  />
+
+  <div class="chip-cloud reveal" aria-label="Technology stack">
+    @for (item of techStack; track item) {
+      <span>{{ item }}</span>
+    }
+  </div>
+</section>
