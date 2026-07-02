@@ -1,9 +1,13 @@
 <section class="section-shell work-section" id="work">
   <app-section-heading
-    eyebrow="Selected work"
-    title="Professional case-study highlights"
-    description="Representative delivery themes described without confidential names, sensitive system details, or private data."
+    eyebrow="Selected work through Egypt Post"
+    title="Enterprise & Government Integration Work"
+    description="Selected real delivery experience through Egypt Post, described at a high level without confidential system names, internal endpoints, private data, or sensitive operational details."
   />
+  <p class="confidentiality-note reveal">
+    Confidentiality-safe summary: no internal endpoints, table names, credentials, tracking numbers,
+    private data, operational volumes, or sensitive architecture are shown.
+  </p>
 
   <div class="case-list">
     @for (study of caseStudies; track study.title) {
@@ -74,17 +78,39 @@
           }
         </div>
         <div class="case-body">
-          <span class="case-index">0{{ $index + 1 }} / {{ study.theme }}</span>
+          <span class="case-index">0{{ $index + 1 }} / {{ study.category }}</span>
           <h3>{{ study.title }}</h3>
+          <p class="case-subtitle">{{ study.subtitle }}</p>
           <p>{{ study.description }}</p>
-          <a class="case-link" href="#contact" aria-label="Discuss {{ study.title }}"
-            >View highlight</a
-          >
+
+          <div class="case-highlights" aria-label="Project highlights">
+            @for (highlight of study.highlights; track highlight) {
+              <span>{{ highlight }}</span>
+            }
+          </div>
         </div>
         <div class="tag-row" aria-label="Technologies">
           @for (tag of study.tags; track tag) {
             <span>{{ tag }}</span>
           }
+        </div>
+        <div class="context-row" aria-label="Integration context">
+          <span class="context-row-label">Integration context</span>
+          <div class="context-badges">
+            @for (context of study.contexts; track context.name) {
+              <span class="context-badge">
+                @if (context.logo && !isLogoMissing(context.logo)) {
+                  <img
+                    [src]="context.logo"
+                    [alt]="context.alt"
+                    (error)="markLogoMissing(context.logo)"
+                  />
+                } @else {
+                  <span>{{ context.name }}</span>
+                }
+              </span>
+            }
+          </div>
         </div>
       </article>
     }

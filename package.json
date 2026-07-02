@@ -5,7 +5,11 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:prod": "ng build --configuration production",
     "build:deploy": "ng build --configuration production && node scripts/build-deploy.mjs",
+    "clean:deploy": "rm -rf deploy && mkdir -p deploy",
+    "zip:deploy": "rm -f deploy/ashraf-portfolio-deploy.zip ashraf-portfolio-deploy.zip && cd deploy && zip -qr ../ashraf-portfolio-deploy.zip . && mv ../ashraf-portfolio-deploy.zip ashraf-portfolio-deploy.zip",
+    "deploy:local": "npm run build:prod && npm run clean:deploy && cp -R dist/ashraf-portfolio/browser/. deploy/ && npm run zip:deploy",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

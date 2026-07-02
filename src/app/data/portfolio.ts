@@ -5,11 +5,20 @@ export interface ExpertiseItem {
 }
 
 export interface CaseStudy {
+  category: string;
   title: string;
+  subtitle: string;
   description: string;
-  theme: string;
   visual: 'api' | 'database' | 'workflow' | 'reliability';
+  highlights: string[];
   tags: string[];
+  contexts: IntegrationContext[];
+}
+
+export interface IntegrationContext {
+  name: string;
+  logo?: string;
+  alt: string;
 }
 
 export interface CertificationItem {
@@ -29,7 +38,7 @@ export interface ContactLink {
 export const profile = {
   name: 'Ashraf Farag Allah',
   role: 'Senior Backend Developer',
-  positioning: 'Senior Backend Developer / Full Stack Developer',
+  positioning: 'Backend Developer | API Integrations | Enterprise Systems',
   subtitle: 'C#/.NET - REST APIs - Oracle - SQL Server - Angular - Enterprise Integrations',
   pitch:
     'I build and improve business-critical systems where reliability, performance, data accuracy, and maintainability matter.',
@@ -87,36 +96,154 @@ export const expertise: ExpertiseItem[] = [
 
 export const caseStudies: CaseStudy[] = [
   {
-    title: 'Enterprise API & Integration Platform',
+    category: 'Government integration',
+    title: 'Digital Egypt Integration',
+    subtitle: 'Government digital services integration through Egypt Post',
     description:
-      'Backend APIs and data integration flows for enterprise environments, focused on reliability, validation, and operational accuracy.',
-    theme: 'Reliable integration delivery',
+      'Contributed to backend and API integration flows connecting Egypt Post operational systems with Digital Egypt service channels, focusing on reliable data exchange, request validation, traceability, queue-based processing, and production support.',
     visual: 'api',
-    tags: ['.NET', 'REST APIs', 'Oracle', 'SQL Server', 'Integration'],
+    highlights: [
+      'Backend/API integration flows',
+      'Request validation and data accuracy',
+      'Queue-based processing and retries',
+      'Production troubleshooting and operational reliability',
+    ],
+    tags: ['.NET', 'C#', 'REST APIs', 'Oracle', 'SQL Server', 'Hangfire'],
+    contexts: [
+      {
+        name: 'Egypt Post',
+        logo: '/assets/logos/egypt-post.svg',
+        alt: 'Egypt Post logo',
+      },
+      {
+        name: 'Digital Egypt',
+        logo: '/assets/logos/digital-egypt.svg',
+        alt: 'Digital Egypt logo',
+      },
+    ],
   },
   {
-    title: 'Database Reporting & Performance Optimization',
+    category: 'Government service flows',
+    title: 'Prosecution Services Integrations',
+    subtitle: 'Public Prosecution, Family Prosecution, and Traffic Prosecution service flows',
     description:
-      'Complex SQL Server and Oracle reporting logic, stored procedures, data extraction, and performance-focused query improvements.',
-    theme: 'Data accuracy and speed',
-    visual: 'database',
-    tags: ['SQL Server', 'Oracle', 'Stored Procedures', 'Reporting', 'Performance'],
-  },
-  {
-    title: 'Internal Workflow & Dynamic Forms System',
-    description:
-      'Workflow and dynamic form solutions using metadata-driven forms, validation rules, backend services, and user-focused operational screens.',
-    theme: 'Operational workflow clarity',
+      'Participated in government service integration work connecting Egypt Post internal platforms with prosecution-related service flows, including Public Prosecution, Family Prosecution, and Traffic Prosecution contexts. The work focused on backend services, data validation, operational accuracy, queue handling, reporting support, and production stability.',
     visual: 'workflow',
-    tags: ['.NET', 'Angular', 'TypeScript', 'APIs', 'System Analysis'],
+    highlights: [
+      'Integration with prosecution-related service flows',
+      'Backend services and operational data exchange',
+      'Validation, logging, and traceability',
+      'Reliability support for production operations',
+    ],
+    tags: ['.NET', 'REST APIs', 'Oracle', 'SQL Server', 'Integration', 'Reporting'],
+    contexts: [
+      {
+        name: 'Egypt Post',
+        logo: '/assets/logos/egypt-post.svg',
+        alt: 'Egypt Post logo',
+      },
+      {
+        name: 'Public Prosecution',
+        logo: '/assets/logos/public-prosecution.svg',
+        alt: 'Public Prosecution logo',
+      },
+      {
+        name: 'Family Prosecution',
+        logo: '/assets/logos/family-prosecution.svg',
+        alt: 'Family Prosecution logo',
+      },
+      {
+        name: 'Traffic Prosecution',
+        logo: '/assets/logos/traffic-prosecution.svg',
+        alt: 'Traffic Prosecution logo',
+      },
+    ],
   },
   {
-    title: 'Production Troubleshooting & Reliability',
+    category: 'Background operations',
+    title: 'Background Jobs & Hangfire Operations',
+    subtitle: 'Scheduled processing, queues, retries, and operational automation',
     description:
-      'Investigated and resolved production issues across APIs, database layers, scheduled jobs, logs, IIS-hosted applications, and integration flows.',
-    theme: 'Production stability',
+      'Worked on Hangfire-based background processing for scheduled jobs, recurring tasks, queue handling, integration workflows, automated dispatching, retries, and operational monitoring. The focus was on improving reliability, visibility, and maintainability for backend processes that run outside the normal request lifecycle.',
     visual: 'reliability',
-    tags: ['Troubleshooting', 'IIS', 'Logs', 'APIs', 'Reliability'],
+    highlights: [
+      'Recurring and scheduled jobs',
+      'Queue processing and retries',
+      'Operational logs and monitoring',
+      'Background automation for integration flows',
+    ],
+    tags: ['Hangfire', '.NET', 'C#', 'SQL Server', 'Oracle', 'Background Jobs'],
+    contexts: [
+      {
+        name: 'Hangfire',
+        logo: '/assets/logos/hangfire.svg',
+        alt: 'Hangfire logo',
+      },
+      {
+        name: '.NET',
+        logo: '/assets/logos/dotnet.svg',
+        alt: '.NET logo',
+      },
+    ],
+  },
+  {
+    category: 'Internal engineering tools',
+    title: 'Internal NuGet Package Service',
+    subtitle: 'Reusable internal backend package for shared services and development standards',
+    description:
+      'Built an internal reusable NuGet package/service layer to standardize shared backend capabilities across projects, reduce duplicated code, improve maintainability, and accelerate implementation of common services, helpers, integration utilities, logging patterns, and reusable development components.',
+    visual: 'database',
+    highlights: [
+      'Internal reusable package/service layer',
+      'Reduced duplicated backend logic',
+      'Shared helpers and integration utilities',
+      'Improved maintainability across projects',
+    ],
+    tags: ['.NET', 'C#', 'NuGet', 'Reusable Libraries', 'Clean Code', 'Internal Tools'],
+    contexts: [
+      {
+        name: 'NuGet',
+        logo: '/assets/logos/nuget.svg',
+        alt: 'NuGet logo',
+      },
+      {
+        name: '.NET',
+        logo: '/assets/logos/dotnet.svg',
+        alt: '.NET logo',
+      },
+    ],
+  },
+  {
+    category: 'Reporting automation',
+    title: 'Auto Mail Queue & Excel Reporting',
+    subtitle: 'Automated email queue with scheduled Excel report generation',
+    description:
+      'Designed and implemented an automated mail queue service that generates Excel reports and sends scheduled operational reports to stakeholders. The solution helped reduce manual reporting effort, improve delivery consistency, and support data-driven operational follow-up.',
+    visual: 'api',
+    highlights: [
+      'Automated mail queue',
+      'Scheduled Excel report generation',
+      'Operational reporting automation',
+      'Reduced manual follow-up effort',
+    ],
+    tags: ['.NET', 'C#', 'Mail Queue', 'Excel Reports', 'SQL Server', 'Oracle', 'Hangfire'],
+    contexts: [
+      {
+        name: '.NET',
+        logo: '/assets/logos/dotnet.svg',
+        alt: '.NET logo',
+      },
+      {
+        name: 'Excel',
+        logo: '/assets/logos/excel.svg',
+        alt: 'Excel logo',
+      },
+      {
+        name: 'Hangfire',
+        logo: '/assets/logos/hangfire.svg',
+        alt: 'Hangfire logo',
+      },
+    ],
   },
 ];
 
