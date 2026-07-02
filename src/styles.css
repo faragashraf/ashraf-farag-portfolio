@@ -386,8 +386,8 @@ a {
   gap: 0.55rem;
 }
 
-.skill-cloud span,
-.chip-cloud span,
+.skill-cloud > span,
+.chip-cloud > span,
 .tag-row span {
   border: 1px solid var(--line);
   border-radius: 999px;
@@ -396,6 +396,33 @@ a {
   padding: 0.48rem 0.7rem;
   font-size: 0.82rem;
   font-weight: 750;
+}
+
+.tech-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.46rem;
+  min-height: 2.4rem;
+  max-width: 100%;
+  white-space: nowrap;
+}
+
+.tech-logo {
+  display: block;
+  flex: 0 0 auto;
+  width: auto;
+  height: auto;
+  max-width: 1.35rem;
+  max-height: 1.35rem;
+  object-fit: contain;
+}
+
+.tech-label {
+  display: inline-block;
+  line-height: 1;
+  white-space: nowrap;
+  word-break: normal;
+  overflow-wrap: normal;
 }
 
 .split-section {
@@ -929,33 +956,64 @@ a {
   text-transform: uppercase;
 }
 
-.context-badges {
+.context-logo-row {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 0.5rem;
+  min-width: 0;
+  max-width: 100%;
+  overflow: visible;
 }
 
-.context-badge {
+.context-logo-chip {
   display: inline-flex;
   align-items: center;
-  min-height: 2.15rem;
-  min-width: 0;
-  border: 1px solid rgba(188, 202, 218, 0.95);
-  border-radius: var(--radius);
-  background: #ffffff;
+  justify-content: center;
+  flex: 0 1 auto;
+  gap: 0.5rem;
+  width: auto;
+  max-width: 100%;
+  min-height: 2.38rem;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.96);
   color: #243247;
-  padding: 0.38rem 0.58rem;
+  padding: 0.45rem 0.75rem;
   font-size: 0.8rem;
   font-weight: 850;
-  line-height: 1.2;
-  box-shadow: 0 8px 22px rgba(17, 24, 39, 0.05);
+  line-height: 1;
+  white-space: nowrap;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+  overflow: hidden;
 }
 
-.context-badge img {
+.context-logo-image {
   display: block;
-  max-width: 7.5rem;
-  height: 1.35rem;
+  flex: 0 0 auto;
+  width: auto;
+  height: auto;
+  max-width: 6rem;
+  max-height: 1.38rem;
   object-fit: contain;
+}
+
+.context-logo-label,
+.context-logo-fallback {
+  display: inline-block;
+  line-height: 1;
+  white-space: nowrap;
+  word-break: normal;
+  overflow-wrap: normal;
+}
+
+.context-logo-label {
+  color: #344256;
+  font-size: 0.78rem;
+}
+
+.context-logo-fallback {
+  color: #243247;
 }
 
 .compact-section {
@@ -968,7 +1026,7 @@ a {
   margin-top: 2rem;
 }
 
-.chip-cloud span {
+.chip-cloud > span {
   background: #ffffff;
   box-shadow: 0 10px 30px rgba(17, 24, 39, 0.06);
 }
@@ -1452,6 +1510,27 @@ a {
 
   .profile-snapshot-hero {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .context-logo-chip {
+    min-height: 2.25rem;
+    padding: 0.4rem 0.65rem;
+  }
+
+  .context-logo-image {
+    max-width: 5.12rem;
+    max-height: 1.25rem;
+  }
+
+  .tech-chip {
+    min-height: 2.25rem;
+  }
+
+  .tech-logo {
+    max-width: 1.25rem;
+    max-height: 1.25rem;
   }
 }
 

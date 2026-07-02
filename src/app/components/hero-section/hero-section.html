@@ -34,8 +34,13 @@
       </div>
     </dl>
     <div class="skill-cloud" aria-label="Core technologies">
-      @for (skill of keySkills; track skill) {
-        <span>{{ skill }}</span>
+      @for (skill of keySkills; track skill.label) {
+        <span class="tech-chip">
+          @if (skill.logo) {
+            <img class="tech-logo" [src]="skill.logo" [alt]="skill.label + ' logo'" loading="lazy" />
+          }
+          <span class="tech-label">{{ skill.label }}</span>
+        </span>
       }
     </div>
   </aside>

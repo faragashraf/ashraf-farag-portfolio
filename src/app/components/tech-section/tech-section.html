@@ -6,8 +6,13 @@
   />
 
   <div class="chip-cloud reveal" aria-label="Technology stack">
-    @for (item of techStack; track item) {
-      <span>{{ item }}</span>
+    @for (item of techStack; track item.label) {
+      <span class="tech-chip">
+        @if (item.logo) {
+          <img class="tech-logo" [src]="item.logo" [alt]="item.label + ' logo'" loading="lazy" />
+        }
+        <span class="tech-label">{{ item.label }}</span>
+      </span>
     }
   </div>
 </section>

@@ -12,13 +12,12 @@ export interface CaseStudy {
   visual: 'api' | 'database' | 'workflow' | 'reliability';
   highlights: string[];
   tags: string[];
-  contexts: IntegrationContext[];
+  integrationContext: IntegrationContext[];
 }
 
 export interface IntegrationContext {
-  name: string;
+  label: string;
   logo?: string;
-  alt: string;
 }
 
 export interface CertificationItem {
@@ -109,16 +108,14 @@ export const caseStudies: CaseStudy[] = [
       'Production troubleshooting and operational reliability',
     ],
     tags: ['.NET', 'C#', 'REST APIs', 'Oracle', 'SQL Server', 'Hangfire'],
-    contexts: [
+    integrationContext: [
       {
-        name: 'Egypt Post',
-        logo: '/assets/logos/egypt-post.svg',
-        alt: 'Egypt Post logo',
+        label: 'Egypt Post',
+        logo: 'assets/logos/egypt-post.svg',
       },
       {
-        name: 'Digital Egypt',
-        logo: '/assets/logos/digital-egypt.svg',
-        alt: 'Digital Egypt logo',
+        label: 'Digital Egypt',
+        logo: 'assets/logos/digital-egypt.svg',
       },
     ],
   },
@@ -136,26 +133,20 @@ export const caseStudies: CaseStudy[] = [
       'Reliability support for production operations',
     ],
     tags: ['.NET', 'REST APIs', 'Oracle', 'SQL Server', 'Integration', 'Reporting'],
-    contexts: [
+    integrationContext: [
       {
-        name: 'Egypt Post',
-        logo: '/assets/logos/egypt-post.svg',
-        alt: 'Egypt Post logo',
+        label: 'Egypt Post',
+        logo: 'assets/logos/egypt-post.svg',
       },
       {
-        name: 'Public Prosecution',
-        logo: '/assets/logos/public-prosecution.svg',
-        alt: 'Public Prosecution logo',
+        label: 'Public Prosecution',
+        logo: 'assets/logos/public-prosecution.png',
       },
       {
-        name: 'Family Prosecution',
-        logo: '/assets/logos/family-prosecution.svg',
-        alt: 'Family Prosecution logo',
+        label: 'Family Prosecution',
       },
       {
-        name: 'Traffic Prosecution',
-        logo: '/assets/logos/traffic-prosecution.svg',
-        alt: 'Traffic Prosecution logo',
+        label: 'Traffic Prosecution',
       },
     ],
   },
@@ -173,16 +164,14 @@ export const caseStudies: CaseStudy[] = [
       'Background automation for integration flows',
     ],
     tags: ['Hangfire', '.NET', 'C#', 'SQL Server', 'Oracle', 'Background Jobs'],
-    contexts: [
+    integrationContext: [
       {
-        name: 'Hangfire',
-        logo: '/assets/logos/hangfire.svg',
-        alt: 'Hangfire logo',
+        label: 'Hangfire',
+        logo: 'assets/logos/hangfire.svg',
       },
       {
-        name: '.NET',
-        logo: '/assets/logos/dotnet.svg',
-        alt: '.NET logo',
+        label: '.NET',
+        logo: 'assets/logos/dotnet.svg',
       },
     ],
   },
@@ -200,16 +189,14 @@ export const caseStudies: CaseStudy[] = [
       'Improved maintainability across projects',
     ],
     tags: ['.NET', 'C#', 'NuGet', 'Reusable Libraries', 'Clean Code', 'Internal Tools'],
-    contexts: [
+    integrationContext: [
       {
-        name: 'NuGet',
-        logo: '/assets/logos/nuget.svg',
-        alt: 'NuGet logo',
+        label: 'NuGet',
+        logo: 'assets/logos/nuget.svg',
       },
       {
-        name: '.NET',
-        logo: '/assets/logos/dotnet.svg',
-        alt: '.NET logo',
+        label: '.NET',
+        logo: 'assets/logos/dotnet.svg',
       },
     ],
   },
@@ -227,21 +214,18 @@ export const caseStudies: CaseStudy[] = [
       'Reduced manual follow-up effort',
     ],
     tags: ['.NET', 'C#', 'Mail Queue', 'Excel Reports', 'SQL Server', 'Oracle', 'Hangfire'],
-    contexts: [
+    integrationContext: [
       {
-        name: '.NET',
-        logo: '/assets/logos/dotnet.svg',
-        alt: '.NET logo',
+        label: '.NET',
+        logo: 'assets/logos/dotnet.svg',
       },
       {
-        name: 'Excel',
-        logo: '/assets/logos/excel.svg',
-        alt: 'Excel logo',
+        label: 'Excel',
+        logo: 'assets/logos/excel.svg',
       },
       {
-        name: 'Hangfire',
-        logo: '/assets/logos/hangfire.svg',
-        alt: 'Hangfire logo',
+        label: 'Hangfire',
+        logo: 'assets/logos/hangfire.svg',
       },
     ],
   },

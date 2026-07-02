@@ -96,17 +96,19 @@
         </div>
         <div class="context-row" aria-label="Integration context">
           <span class="context-row-label">Integration context</span>
-          <div class="context-badges">
-            @for (context of study.contexts; track context.name) {
-              <span class="context-badge">
+          <div class="context-logo-row">
+            @for (context of study.integrationContext; track context.label) {
+              <span class="context-logo-chip">
                 @if (context.logo && !isLogoMissing(context.logo)) {
                   <img
+                    class="context-logo-image"
                     [src]="context.logo"
-                    [alt]="context.alt"
+                    [alt]="context.label + ' logo'"
                     (error)="markLogoMissing(context.logo)"
                   />
+                  <span class="context-logo-label">{{ context.label }}</span>
                 } @else {
-                  <span>{{ context.name }}</span>
+                  <span class="context-logo-fallback">{{ context.label }}</span>
                 }
               </span>
             }
