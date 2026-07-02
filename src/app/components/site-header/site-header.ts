@@ -77,8 +77,8 @@ export class SiteHeader implements AfterViewInit, OnDestroy {
     }
 
     const header = document.querySelector<HTMLElement>('.site-header');
-    const headerOffset = (header?.offsetHeight ?? 80) + 32;
-    const offset = Math.max(headerOffset, Math.min(window.innerHeight * 0.42, 360));
+    const headerOffset = (header?.offsetHeight ?? 72) + 28;
+    const offset = Math.max(headerOffset, Math.min(window.innerHeight * 0.34, 260));
     let current = this.navItems[0].id;
 
     for (const item of this.navItems) {
